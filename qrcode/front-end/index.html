@@ -35,15 +35,15 @@
   <script type="text/javascript">
     var last = undefined;
     var FUNCTION_API_URL = "%%FUNCTION_API_URL%%";
-    
+
     var envAPI = undefined;
     $("#mysubmit").click(function () {
-      envAPI = 'default/qr-java'
+      envAPI = '/default/qr-java'
       doit()
     })
 
     $("#mysubmitjs").click(function () {
-      envAPI = 'default/qr'
+      envAPI = '/default/qr'
       doit()
     })
 
@@ -52,7 +52,11 @@
       if (last != txt) {
         last = txt
         let API = FUNCTION_API_URL + envAPI
-        let src = API + '?text=' + escape(txt)
+        let src = API + '?text=' + escape(txt);
+        src = scr.replace(
+          /([^:]\/)\/+/g,
+          '$1'
+        );
         console.log("sending", src)
         $.get(src, function (data, status) {
           console.log("status", status)
