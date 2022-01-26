@@ -19,7 +19,7 @@
 
 <body style="padding-top:100px">
   <div class="container" style="width:650px">
-    <center><img src="%%PUBLIC_PATH%%/assets/logo.png"></center>
+    <center><img src="%%PUBLIC_URL%%/assets/logo.png"></center>
     <h2>Cloud-native by construction.<br />No tools added.</h2>
     <form id="myform" onsubmit="generate(); return false">
       <div class="form-group">
@@ -34,7 +34,7 @@
 
   <script type="text/javascript">
     var last = undefined;
-    var FUNCTION_API_PATH = "%%FUNCTION_API_PATH%%";
+    var FUNCTION_API_URL = "%%FUNCTION_API_URL%%";
     
     var envAPI = undefined;
     $("#mysubmit").click(function () {
@@ -51,7 +51,7 @@
       var txt = $("#mytext").val().trim()
       if (last != txt) {
         last = txt
-        let API = FUNCTION_API_PATH + envAPI
+        let API = FUNCTION_API_URL + envAPI
         let src = API + '?text=' + escape(txt)
         console.log("sending", src)
         $.get(src, function (data, status) {
