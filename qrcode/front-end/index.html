@@ -19,7 +19,7 @@
 
 <body style="padding-top:100px">
   <div class="container" style="width:650px">
-    <center><img src="%%PUBLIC_URL%%/assets/logo.png"></center>
+    <center><img width="350px" src="%%PUBLIC_URL%%/assets/logo.png"></center>
     <h2>Cloud-native by construction.<br />No tools added.</h2>
     <form id="myform" onsubmit="generate(); return false">
       <div class="form-group">
@@ -53,7 +53,7 @@
         last = txt
         let API = FUNCTION_API_URL + envAPI
         let src = API + '?text=' + escape(txt);
-        src = scr.replace(
+        src = src.replace(
           /([^:]\/)\/+/g,
           '$1'
         );
